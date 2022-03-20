@@ -1,5 +1,5 @@
-import Link from 'next/Link';
-import Image from 'next/Image';
+// import Link from 'next/Link';
+// import Image from 'next/Image';
 import { Flex, Box, Text, Button } from '@chakra-ui/react';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
 
