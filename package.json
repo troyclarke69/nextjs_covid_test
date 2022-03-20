@@ -20,7 +20,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-horizontal-scrolling-menu": "^2.7.1",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-number-format": "^4.9.1"
   },
   "devDependencies": {
     "eslint": "8.11.0",

@@ -1,7 +1,8 @@
 import Link from 'next/Link';
-import Image from 'next/Image';
+// import Image from 'next/Image';
 import { Flex, Box, Text, Button } from '@chakra-ui/react';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
+import NumberFormat from 'react-number-format';
 
 const Banner = ({ purpose }) => (
   <Flex flexWrap='wrap' justifyContent='center' alignItems='center'>
@@ -9,7 +10,7 @@ const Banner = ({ purpose }) => (
   </Flex>
 );
 export default function Home({ countriesData }) {
-  // console.log('countriesData', countriesData);
+  console.log('countriesData', countriesData);
   // console.log('dailyData', countriesData.data);
 
   const data = countriesData;
@@ -23,6 +24,8 @@ export default function Home({ countriesData }) {
 
   let location = '';
   let life_expectancy = 0;
+  let population = '';
+  let continent = '';
   let new_cases = 0;
   let people_fully_vaccinated = 0;
   let people_vaccinated = 0;
@@ -39,6 +42,8 @@ export default function Home({ countriesData }) {
     } else {
       life_expectancy = 0;
     }
+    population = data[countries[j]].population;
+    continent = data[countries[j]].continent;
     new_cases =
       data[countries[j]].data[data[countries[j]].data.length - 1].new_cases;
     people_fully_vaccinated =
@@ -65,6 +70,8 @@ export default function Home({ countriesData }) {
       name: countries[j],
       location,
       life_expectancy,
+      population,
+      continent,
       new_cases,
       people_fully_vaccinated,
       people_fully_vaccinated_per_hundred,
@@ -91,19 +98,57 @@ export default function Home({ countriesData }) {
 
   return (
     <div style={{ margin: '1rem' }}>
-      <h2>Country: Life Expectancy</h2>
+      <h2></h2>
       <ul style={{ listStyle: 'none' }}>
         {vacStats?.map((country, i) => {
           return (
             <li key={country.location}>
               {i + 1}
               {'.  '}
-              <strong>{country.location}:</strong>
+              <Link
+                href={`https://www.google.com/maps/place/${country.location}`}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  style={{ textDecoration: 'underline', color: 'blue' }}
+                >
+                  {country.location}:
+                </a>
+              </Link>
               {'      '}
-              <em>{country.life_expectancy}</em>
+              <em>Life Expectancy: {country.life_expectancy}</em>
+
               <div style={{ paddingLeft: '2rem' }}>
-                <h4>Total Cases: {country.total_cases}</h4>
-                <h4>Total Deaths: {country.total_deaths}</h4>
+                <h4>Continent: {country.continent}</h4>
+
+                <h4>
+                  Population:{' '}
+                  <NumberFormat
+                    value={country.population}
+                    displayType={'text'}
+                    thousandSeparator=','
+                  />
+                </h4>
+
+                <h4>
+                  Total Cases:{' '}
+                  <NumberFormat
+                    value={country.total_cases}
+                    displayType={'text'}
+                    thousandSeparator=','
+                  />
+                </h4>
+                <h4>
+                  Total Deaths:{' '}
+                  <NumberFormat
+                    value={country.total_deaths}
+                    displayType={'text'}
+                    thousandSeparator=','
+                  />
+                </h4>
               </div>
             </li>
           );
