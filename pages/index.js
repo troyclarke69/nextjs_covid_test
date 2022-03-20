@@ -9,7 +9,7 @@ const Banner = ({ purpose }) => (
   </Flex>
 );
 export default function Home({ countriesData }) {
-  console.log('countriesData', countriesData);
+  // console.log('countriesData', countriesData);
   // console.log('dailyData', countriesData.data);
 
   const data = countriesData;
@@ -78,7 +78,7 @@ export default function Home({ countriesData }) {
     vacStats.push(rowStats);
   }
 
-  console.log('vacStats', vacStats);
+  // console.log('vacStats', vacStats);
 
   // this is sorting the orig array (vacStats) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!?
   const vacsSorted = vacStats
