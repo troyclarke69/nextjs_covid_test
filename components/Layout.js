@@ -11,9 +11,28 @@ export default function Layout({ children }) {
         <title>Covid19</title>
       </Head>
       <Box maxWidth='1280px' m='auto'>
-        <header>This is a test, only a test ...</header>
+        <header
+          style={{
+            backgroundColor: '#203040',
+            color: '#d8d8d8',
+            padding: '1rem',
+          }}
+        >
+          Covid19
+        </header>
         <main>{children}</main>
-        <footer>This concludes the test. Thank you.</footer>
+        <footer
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#203040',
+            color: '#d8d8d8',
+            padding: '1rem',
+          }}
+        >
+          Covid19 &copy; 2022 All rights reserved.
+        </footer>
       </Box>
     </>
   );

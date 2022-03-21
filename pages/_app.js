@@ -5,6 +5,14 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import Layout from '../components/Layout';
 
+import { extendTheme } from '@chakra-ui/react';
+export const theme = extendTheme({
+  fonts: {
+    body: 'Fredoka, Open Sans, sans-serif',
+    heading: 'Fredoka, Raleway, sans-serif',
+  },
+});
+
 function MyApp({ Component, pageProps }) {
   NProgress.configure({ showSpinner: true });
 
