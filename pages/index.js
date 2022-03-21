@@ -350,7 +350,19 @@ export default function Home({ countriesData, currentTime }) {
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   const countriesData = await fetchApi(`${baseUrl}`);
+//   const currentTime = Date(Date.now);
+
+//   return {
+//     props: {
+//       countriesData,
+//       currentTime,
+//     },
+//   };
+// }
+
+export async function getServerSideProps() {
   const countriesData = await fetchApi(`${baseUrl}`);
   const currentTime = Date(Date.now);
 
